@@ -9,7 +9,6 @@ col1, col2, col3 = st.columns([1, 2, 1])
 
 with col2:
     st.image("logo_AAC.png", use_container_width=True)
-bg_image = Image.open("bg_AAC.jpg") # Remplace par ton fichier
 
 st.markdown(
     """
