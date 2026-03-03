@@ -7,11 +7,11 @@ conn = st.connection("gsheets", type=GSheetsConnection)
 
 def load_data():
     # Lit les données de la feuille "Sheet1" (ou le nom de ton onglet)
-    return conn.read(worksheet="Feuille 1", ttl="0s")
+    return conn.read(worksheet="projets_asso", ttl="0s")
 
 def save_data(df):
     # Met à jour la feuille avec le nouveau DataFrame
-    conn.update(worksheet="Feuille 1", data=df)
+    conn.update(worksheet="projets_asso", data=df)
     st.cache_data.clear()
 
 # --- CHARGEMENT ---
