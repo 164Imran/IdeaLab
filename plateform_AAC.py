@@ -2,19 +2,21 @@ import streamlit as st
 from streamlit_gsheets import GSheetsConnection
 import pandas as pd
 
-# --- CONFIGURATION CONNEXION ---
+# Nettoyage de l'URL : s'arrêter après l'ID de la feuille
+SPREADSHEET_URL = "https://docs.google.com/spreadsheets/d/1pD_AwECwHYoov2ZNOkZZnu64inOK3SsW9cU6tMI8anE/edit?gid"
+# Vérifier exactement le nom sur l'onglet en bas de votre Google Sheet
+SHEET_NAME = "projet_asso" 
+
 conn = st.connection("gsheets", type=GSheetsConnection)
 
 def load_data():
-    # Lit les données de la feuille "Sheet1" (ou le nom de ton onglet)
-    return conn.read(worksheet="projets_asso", ttl="0s")
+    # Suppression de ttl="0s" pour le premier test afin de valider la connexion
+    return conn.read(spreadsheet=SPREADSHEET_URL, worksheet=SHEET_NAME)
 
 def save_data(df):
-    # Met à jour la feuille avec le nouveau DataFrame
-    conn.update(worksheet="projets_asso", data=df)
+    conn.update(spreadsheet=SPREADSHEET_URL, worksheet=SHEET_NAME, data=df)
     st.cache_data.clear()
 
-# --- CHARGEMENT ---
 data = load_data()
 
 # --- SECTION AJOUT ---
