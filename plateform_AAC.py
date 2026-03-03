@@ -18,7 +18,9 @@ def save_data(df):
     st.cache_data.clear()
 
 data = load_data()
-
+col1, col2, col3 = st.columns(3)
+with col3:
+    st.image("logo_AAC.png")
 # --- SECTION AJOUT ---
 with st.expander("Soumettre une nouvelle idée"):
     with st.form("form_projet"):
