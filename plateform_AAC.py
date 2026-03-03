@@ -3,9 +3,9 @@ from streamlit_gsheets import GSheetsConnection
 import pandas as pd
 
 # Nettoyage de l'URL : s'arrêter après l'ID de la feuille
-SPREADSHEET_URL = "https://docs.google.com/spreadsheets/d/1pD_AwECwHYoov2ZNOkZZnu64inOK3SsW9cU6tMI8anE/edit?gid"
+SPREADSHEET_URL = "https://docs.google.com/spreadsheets/d/1pD_AwECwHYoov2ZNOkZZnu64inOK3SsW9cU6tMI8anE"
 # Vérifier exactement le nom sur l'onglet en bas de votre Google Sheet
-SHEET_NAME = "projet_asso" 
+SHEET_NAME = "Sheet1" 
 
 conn = st.connection("gsheets", type=GSheetsConnection)
 
