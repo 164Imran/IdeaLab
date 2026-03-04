@@ -42,9 +42,10 @@ df_idees = get_data("Idees")
 # Formulaire d'ajout
 with st.expander("Soumettre une nouvelle idée"):
     with st.form("new_idea_form"):
+        nom_utilisateur = st.text_input("Votre Nom")
         titre = st.text_input("Titre du projet")
         description = st.text_area("Description")
-        nom_utilisateur = st.text_input("Votre Nom")
+        
         submit = st.form_submit_button("Publier")
 
         if submit and titre and nom_utilisateur:
