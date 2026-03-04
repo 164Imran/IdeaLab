@@ -3,6 +3,10 @@ from streamlit_gsheets import GSheetsConnection
 import pandas as pd
 from PIL import Image
 
+
+st.set_page_config(
+    page_title="IdeaLab", page_icon="petitlogo.png" ,initial_sidebar_state="expanded"
+)
 # Charger l'image avec PIL (pour éviter les erreurs de format)
 img = Image.open("logo_AAC.png")
 # Initialisation de la connexion unique
