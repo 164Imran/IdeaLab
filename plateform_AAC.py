@@ -1,31 +1,17 @@
 import streamlit as st
 from streamlit_gsheets import GSheetsConnection
 import pandas as pd
+from PIL import Image
 
+# Charger l'image avec PIL (pour éviter les erreurs de format)
+img = Image.open("logo_AAC.png")
 # Initialisation de la connexion unique
 conn = st.connection("gsheets", type=GSheetsConnection)
-st.set_page_config(layout="centered", page_title="IdeaLab")
 
-# --- STYLE CSS POUR LA BANNIÈRE ---
-st.markdown("""
-    <style>
-    .banner {
-        width: 100%;
-        height: 300px;
-        object-fit: cover;
-        border-radius: 15px;
-        margin-bottom: 20px;
-    }
-    .main {
-        padding-top: 0rem;
-    }
-    </style>
-    """, unsafe_allow_html=True)
+col1, col2, col3 = st.columns([1, 2, 1])
 
-# --- AFFICHAGE DE LA BANNIÈRE ---
-# Remplacez par votre URL ou le nom de votre fichier local
-banner_url = "logo_AAC.png"
-st.markdown(f'<img src="{banner_url}" class="banner">', unsafe_allow_html=True)
+with col2:
+    st.image(img, use_container_width=True)
 # --- FONCTIONS DE DONNÉES ---
 
 def get_data(sheet_name):
